@@ -18,3 +18,16 @@
 | 14  | nvim/init.vim                                      | ~/.config/nvim/init.vim                                        | Linux   |      |
 | 15  | .zimrc                                             | ~/.zimrc                                                       | Linux   |      |
 | 16  | fcitx5/                                            | ~/.config/fcitx5/                                              | Linux   |      |
+
+## Chezmoi
+
+```shell
+chezmoi add <file>
+chezmoi add --follow <symlink>
+
+chezmoi add --exact --recursive <folder>
+
+# if add folder with external file
+chezmoi add <folder>/.keep
+chezmoi add --exact --recursive <folder>
+```
