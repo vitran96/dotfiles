@@ -1,0 +1,46 @@
+{
+  "float": [
+    {
+      "class": "pop-shell-example",
+      "title": "pop-shell-example"
+    },
+    {
+      "class": "Gnome-control-center"
+    },
+    {
+      "class": "Io.elementary.appcenter"
+    },
+    {
+      "class": "Timeshift-gtk"
+    },
+    {
+      "class": "flameshot"
+    },
+    {
+      "class": "Gsconnect-preferences"
+    },
+    {
+      "class": "org.gnome.Shell.Extensions"
+    },
+    {
+      "class": "Steam"
+    },
+    {
+      "class": "1Password"
+    },
+    {
+      "class": "obs"
+    },
+    {
+      "class": "balena-etcher"
+    },
+    {
+      "class": "Cloudflare Zero Trust"
+    },
+    {
+      "class": "Anydesk"
+    }
+  ],
+  "skiptaskbarhidden": [],
+  "log_on_focus": false
+}

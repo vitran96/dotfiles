@@ -1,0 +1,15 @@
+if command -v zoxide &>/dev/null; then
+  eval "$(zoxide init --cmd cd zsh)"
+fi
+
+# Nix
+if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix.sh; fi
+
+# _fix_cursor() {
+#   echo -ne '\e[5 q'
+# }
+# precmd_functions+=(_fix_cursor)
+
+if command -v $($HOME/.local/bin/mise) &>/dev/null; then
+  eval "$($HOME/.local/bin/mise activate zsh)"
+fi

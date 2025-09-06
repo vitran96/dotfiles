@@ -1,4 +1,31 @@
+export ESHELL="zsh"
+export EDITOR="vim"
+
+# export MANPATH="/usr/local/man:$MANPATH"
+
+# You may need to manually set your language environment
+export LANG=en_US.UTF-8
+
+bindkey -e
 
 # Begin added by argcomplete
-fpath=( /home/chris/.local/lib/python3.10/site-packages/argcomplete/bash_completion.d "${fpath[@]}" )
+fpath=( $HOME/.local/lib/python3.10/site-packages/argcomplete/bash_completion.d "${fpath[@]}" )
 # End added by argcomplete
+
+# Remove mode switching delay.
+# KEYTIMEOUT=5
+
+# Change cursor shape for different vi modes.
+# function zle-keymap-select {
+#   if [[ ${KEYMAP} == vicmd ]] ||
+#       [[ $1 = 'block' ]]; then
+#     echo -ne '\e[1 q'
+
+#   elif [[ ${KEYMAP} == main ]] ||
+#       [[ ${KEYMAP} == viins ]] ||
+#       [[ ${KEYMAP} = '' ]] ||
+#       [[ $1 = 'beam' ]]; then
+#     echo -ne '\e[5 q'
+#   fi
+# }
+# zle -N zle-keymap-select

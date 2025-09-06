@@ -1,97 +1,35 @@
-# User configuration
+# === zim ===
+ZIM_CONFIG_FILE=$HOME/.zimrc
 
-export ESHELL="zsh"
-export EDITOR="vim"
+ZIM_HOME=$HOME/.zim
 
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-
-# enable color support of ls and also add handy aliases
-if [ -x /usr/bin/dircolors ]; then
-  test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-  alias ls='ls --color=auto'
-  #alias dir='dir --color=auto'
-  #alias vdir='vdir --color=auto'
-
-  alias grep='grep --color=auto'
-  alias fgrep='fgrep --color=auto'
-  alias egrep='egrep --color=auto'
+# Download zimfw plugin manager if missing.
+if [[ ! -e ${ZIM_HOME}/zimfw.zsh ]]; then
+  curl -fsSL --create-dirs -o ${ZIM_HOME}/zimfw.zsh \
+      https://raw.githubusercontent.com/zimfw/zimfw/refs/tags/v1.18.0/zimfw.zsh
 fi
 
-# colored GCC warnings and errors
-#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
-
-# some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
-
-# Add an "alert" alias for long running commands.  Use like so:
-#   sleep 10; alert
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-
-alias explorer="nautilus"
-
-#alias emacs-standalone="/usr/bin/emacs -nw"
-#alias emacs='emacsclient -nw -a emacs-standalone'
-alias emacs='/usr/bin/emacs -nw'
-alias emacs-server='/usr/bin/emacs -d '
-alias emacs-attach='/usr/bin/emacsclient -f '
-
-alias docker="podman"
-alias docker-compose="podman-compose"
-
-if [ -f ~/.bash_aliases ]; then
-  . ~/.bash_aliases
+# Install missing modules and update ${ZIM_HOME}/init.zsh if missing or outdated.
+if [[ ! ${ZIM_HOME}/init.zsh -nt ${ZIM_CONFIG_FILE:-${ZDOTDIR:-${HOME}}/.zimrc} ]]; then
+  source ${ZIM_HOME}/zimfw.zsh init
 fi
 
-if [ -f ~/.custom.bash_aliases ]; then
-  . ~/.custom.bash_aliases
+# Initialize modules.
+source ${ZIM_HOME}/init.zsh
+
+# =============
+
+# Load .zshenv
+if [[ -f $HOME/.zshenv ]]; then
+  source $HOME/.zshenv
 fi
 
-# Remove mode switching delay.
-KEYTIMEOUT=5
+# Load aliases
+if [[ -f $HOME/.zsh_aliases ]]; then
+  source $HOME/.zsh_aliases
+fi
 
-# Change cursor shape for different vi modes.
-function zle-keymap-select {
-  if [[ ${KEYMAP} == vicmd ]] ||
-      [[ $1 = 'block' ]]; then
-    echo -ne '\e[1 q'
-
-  elif [[ ${KEYMAP} == main ]] ||
-      [[ ${KEYMAP} == viins ]] ||
-      [[ ${KEYMAP} = '' ]] ||
-      [[ $1 = 'beam' ]]; then
-    echo -ne '\e[5 q'
-  fi
-}
-zle -N zle-keymap-select
-
-_fix_cursor() {
-  echo -ne '\e[5 q'
-}
-
-
-if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
-
-precmd_functions+=(_fix_cursor)
-
-eval "$(/home/chris/.local/bin/mise activate zsh)"
+# Load hook
+if [[ -f $HOME/.zsh_hook ]]; then
+  source $HOME/.zsh_hook
+fi

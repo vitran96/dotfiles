@@ -1,0 +1,13 @@
+{{ if ne .chezmoi.os "windows" }}
+PowerToys/
+WindowsPowerShell/
+WinTerminal/
+{{ end }}
+
+{{ if eq .chezmoi.os "windows" }}
+.config/**
+.local/**
+{{ end }}
+
+README.md
+.gitignore
