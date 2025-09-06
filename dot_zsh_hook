@@ -10,6 +10,6 @@ if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc
 # }
 # precmd_functions+=(_fix_cursor)
 
-if command -v $($HOME/.local/bin/mise) &>/dev/null; then
+if [ -e $HOME/.local/bin/mise ]; then
   eval "$($HOME/.local/bin/mise activate zsh)"
 fi
