@@ -57,9 +57,7 @@ alias emacs='/usr/bin/emacs -nw'
 alias emacs-server='/usr/bin/emacs -d '
 alias emacs-attach='/usr/bin/emacsclient -f '
 
-alias docker='podman'
-alias docker-compose='podman-compose'
-
-# if [ -e $HOME/AppImages/cursor.appimage]; then
-#   alias cursor="$HOME/AppImages/cursor.appimage"
-# fi
+if command -v podman --version >/dev/null 2>&1; then
+  alias docker='podman'
+  alias docker-compose='podman-compose'
+fi
