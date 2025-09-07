@@ -45,3 +45,5 @@ unset color_prompt force_color_prompt
 if [ -f $HOME/.bash_aliases ]; then
     . $HOME/.bash_aliases
 fi
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

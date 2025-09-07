@@ -29,3 +29,5 @@ fpath=( $HOME/.local/lib/python3.10/site-packages/argcomplete/bash_completion.d 
 #   fi
 # }
 # zle -N zle-keymap-select
+
+[ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
