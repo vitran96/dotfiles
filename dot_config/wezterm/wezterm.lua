@@ -55,6 +55,8 @@ config.font = wezterm.font_with_fallback {
   'monospace',
 }
 
+config.default_cursor_style = 'SteadyBar'
+
 -- Key bindings
 -- Possible Modifier labels are:
 --     SUPER, CMD, WIN - these are all equivalent: on macOS the Command key, on Windows the Windows key, on Linux this can also be the Super or Hyper key. Left and right are equivalent.
