@@ -28,21 +28,21 @@ if command -v dust --version >/dev/null 2>&1; then
   alias du='dust'
 fi
 
-if command -v fdfind --version >/dev/null 2>&1; then
+if [ -e /usr/bin/fdfind ]; then
   alias find='fd'
 fi
 
-if command -v rg --version >/dev/null 2>&1; then
+if [ -e /usr/bin/rg ]; then
   alias grep='rg'
 fi
 
-if command -v batcat --version >/dev/null 2>&1; then
+if [ -e /usr/bin/batcat ]; then
   alias cat='batcat'
+  alias bat='batcat'
 fi
 
 if [ -e $HOME/.cargo/bin/dua ]; then
   alias dua=$HOME/.cargo/bin/dua
-  alias du='dua'
 fi
 
 # Add an 'alert' alias for long running commands.  Use like so:
