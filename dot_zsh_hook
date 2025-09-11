@@ -10,6 +10,8 @@ if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc
 # }
 # precmd_functions+=(_fix_cursor)
 
-if command -v $HOME/.local/bin/mise --version >/dev/null 2>&1; then
+if [ -e $HOME/.local/bin/mise ]; then
+  # shims can add performance overhead. good use case might be in CICD pipeline
+  # eval "$($HOME/.local/bin/mise activate zsh --shims)"
   eval "$($HOME/.local/bin/mise activate zsh)"
 fi
