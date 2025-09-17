@@ -1,7 +1,10 @@
 {{ if ne .chezmoi.os "windows" }}
-PowerToys/
-WindowsPowerShell/
-WinTerminal/
+PowerToys/**
+WindowsPowerShell/**
+WinTerminal/**
+AppData/**
+Documents/**
+.wslconfig
 {{ end }}
 
 {{ if eq .chezmoi.os "windows" }}
