@@ -4,9 +4,6 @@ local wezterm = require 'wezterm'
 -- This will hold the configuration.
 local config = wezterm.config_builder()
 
-local session_type = os.getenv("XDG_SESSION_TYPE")
-config.enable_wayland = session_type == "wayland"
-
 -- This is where you actually apply your config choices.
 
 -- For example, changing the initial geometry for new windows:
@@ -22,36 +19,49 @@ config.color_scheme = 'Gogh (Gogh)'
 -- config.window_background_opacity = 1.0
 
 -- Tab helper for Windows
--- if wezterm.target_triple == 'x86_64-pc-windows-msvc' then
---   table.insert(config.launch_menu, {
---     label = 'PowerShell',
---     args = { 'powershell.exe', '-NoLogo' },
---   })
+if wezterm.target_triple == 'x86_64-pc-windows-msvc' then
+  -- Check if pwsh exists
+  -- TODO: should split into a function
+  if os.execute("where pwsh.exe > NUL 2>&1") == 0 then
+      table.insert(config.launch_menu, {
+        label = 'PowerShell 7+',
+        args = { 'pwsh.exe', '-NoLogo' },
+      })
+  end
 
---   -- Find installed visual studio version(s) and add their compilation
---   -- environment command prompts to the menu
---   for _, vsvers in
---     ipairs(
---       wezterm.glob('Microsoft Visual Studio/20*', 'C:/Program Files (x86)')
---     )
---   do
---     local year = vsvers:gsub('Microsoft Visual Studio/', '')
---     table.insert(config.launch_menu, {
---       label = 'x64 Native Tools VS ' .. year,
---       args = {
---         'cmd.exe',
---         '/k',
---         'C:/Program Files (x86)/'
---           .. vsvers
---           .. '/BuildTools/VC/Auxiliary/Build/vcvars64.bat',
---       },
---     })
---   end
--- end
+  table.insert(config.launch_menu, {
+    label = 'PowerShell',
+    args = { 'powershell.exe', '-NoLogo' },
+  })
+
+  -- Find installed visual studio version(s) and add their compilation
+  -- environment command prompts to the menu
+  for _, vsvers in
+    ipairs(
+      wezterm.glob('Microsoft Visual Studio/20*', 'C:/Program Files (x86)')
+    )
+  do
+    local year = vsvers:gsub('Microsoft Visual Studio/', '')
+    table.insert(config.launch_menu, {
+      label = 'x64 Native Tools VS ' .. year,
+      args = {
+        'cmd.exe',
+        '/k',
+        'C:/Program Files (x86)/'
+          .. vsvers
+          .. '/BuildTools/VC/Auxiliary/Build/vcvars64.bat',
+      },
+    })
+  end
+else
+  local session_type = os.getenv("XDG_SESSION_TYPE")
+  config.enable_wayland = session_type == "wayland"
+end
 
 -- Font
 config.font = wezterm.font_with_fallback {
   'JetBrainsMono Nerd Font',
+  'JetBrainsMono NF',
   'monospace',
 }
 
