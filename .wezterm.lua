@@ -22,36 +22,10 @@ config.color_scheme = 'Gogh (Gogh)'
 if wezterm.target_triple == 'x86_64-pc-windows-msvc' then
   -- Check if pwsh exists
   -- TODO: should split into a function
-  if os.execute("where pwsh.exe > NUL 2>&1") == 0 then
-      table.insert(config.launch_menu, {
-        label = 'PowerShell 7+',
-        args = { 'pwsh.exe', '-NoLogo' },
-      })
-  end
-
-  table.insert(config.launch_menu, {
-    label = 'PowerShell',
-    args = { 'powershell.exe', '-NoLogo' },
-  })
-
-  -- Find installed visual studio version(s) and add their compilation
-  -- environment command prompts to the menu
-  for _, vsvers in
-    ipairs(
-      wezterm.glob('Microsoft Visual Studio/20*', 'C:/Program Files (x86)')
-    )
-  do
-    local year = vsvers:gsub('Microsoft Visual Studio/', '')
-    table.insert(config.launch_menu, {
-      label = 'x64 Native Tools VS ' .. year,
-      args = {
-        'cmd.exe',
-        '/k',
-        'C:/Program Files (x86)/'
-          .. vsvers
-          .. '/BuildTools/VC/Auxiliary/Build/vcvars64.bat',
-      },
-    })
+  if os.execute("where pwsh.exe > NUL 2>&1") then
+    config.default_prog = { 'pwsh.exe' }
+  else
+    config.default_prog = { 'powershell.exe' }
   end
 else
   local session_type = os.getenv("XDG_SESSION_TYPE")
