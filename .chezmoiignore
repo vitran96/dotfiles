@@ -10,6 +10,12 @@ Documents/**
 {{ if eq .chezmoi.os "windows" }}
 .config/**
 .local/**
+.bash_completion
+.bashrc
+.zshrc
+.zsh_aliases
+.zsh_hook
+.zshenv
 {{ end }}
 
 README.md
