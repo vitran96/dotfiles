@@ -1,8 +1,8 @@
 # Alias
-# New-Alias sudo gsudo
-New-Alias ls lsd
-New-Alias grep rg
-New-Alias find fd
+# Set-Alias sudo gsudo
+Set-Alias ls lsd
+Set-Alias grep rg
+Set-Alias find fd
 
 function Load-ProfileD {
   [CmdletBinding()]
@@ -108,7 +108,7 @@ if (Get-Command direnv -ErrorAction SilentlyContinue) {
 
 # Direnv
 if (Get-Command bat -ErrorAction SilentlyContinue) {
-  New-Alias cat bat
+  Set-Alias cat bat
 }
 
 # Fzf---------------------------------------------------------------------------
