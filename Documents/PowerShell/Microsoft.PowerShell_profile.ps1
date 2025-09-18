@@ -9,8 +9,8 @@ function Load-ProfileD {
   param(
     [string]$ProfilePath = $PROFILE,
     [string]$DirName = 'module.d',
-    [switch]$CreateIfMissing = $true
-    [switch]$Quiet,
+    [switch]$CreateIfMissing = $true,
+    [switch]$Quiet
   )
 
   $baseDir = Split-Path -Parent $ProfilePath
