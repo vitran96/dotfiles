@@ -1,0 +1,154 @@
+{
+  "properties": {
+    "IsAdvancedAIEnabled": {
+      "value": false
+    },
+    "ShowCustomPreview": {
+      "value": true
+    },
+    "CloseAfterLosingFocus": {
+      "value": false
+    },
+    "advanced-paste-ui-hotkey": {
+      "HasConflict": false,
+      "ConflictDescription": "",
+      "IsSystemConflict": false,
+      "win": true,
+      "ctrl": false,
+      "alt": false,
+      "shift": true,
+      "code": 86,
+      "key": ""
+    },
+    "paste-as-plain-hotkey": {
+      "HasConflict": false,
+      "ConflictDescription": "",
+      "IsSystemConflict": false,
+      "win": true,
+      "ctrl": true,
+      "alt": true,
+      "shift": false,
+      "code": 86,
+      "key": ""
+    },
+    "paste-as-markdown-hotkey": {
+      "HasConflict": false,
+      "ConflictDescription": "",
+      "IsSystemConflict": false,
+      "win": false,
+      "ctrl": false,
+      "alt": false,
+      "shift": false,
+      "code": 0,
+      "key": ""
+    },
+    "paste-as-json-hotkey": {
+      "HasConflict": false,
+      "ConflictDescription": "",
+      "IsSystemConflict": false,
+      "win": false,
+      "ctrl": false,
+      "alt": false,
+      "shift": false,
+      "code": 0,
+      "key": ""
+    },
+    "custom-actions": {
+      "value": []
+    },
+    "additional-actions": {
+      "image-to-text": {
+        "shortcut": {
+          "HasConflict": false,
+          "ConflictDescription": "",
+          "IsSystemConflict": false,
+          "win": false,
+          "ctrl": false,
+          "alt": false,
+          "shift": false,
+          "code": 0,
+          "key": ""
+        },
+        "isShown": false
+      },
+      "paste-as-file": {
+        "isShown": true,
+        "paste-as-txt-file": {
+          "shortcut": {
+            "HasConflict": false,
+            "ConflictDescription": "",
+            "IsSystemConflict": false,
+            "win": false,
+            "ctrl": false,
+            "alt": false,
+            "shift": false,
+            "code": 0,
+            "key": ""
+          },
+          "isShown": false
+        },
+        "paste-as-png-file": {
+          "shortcut": {
+            "HasConflict": false,
+            "ConflictDescription": "",
+            "IsSystemConflict": false,
+            "win": false,
+            "ctrl": false,
+            "alt": false,
+            "shift": false,
+            "code": 0,
+            "key": ""
+          },
+          "isShown": false
+        },
+        "paste-as-html-file": {
+          "shortcut": {
+            "HasConflict": false,
+            "ConflictDescription": "",
+            "IsSystemConflict": false,
+            "win": false,
+            "ctrl": false,
+            "alt": false,
+            "shift": false,
+            "code": 0,
+            "key": ""
+          },
+          "isShown": false
+        }
+      },
+      "transcode": {
+        "isShown": true,
+        "transcode-to-mp3": {
+          "shortcut": {
+            "HasConflict": false,
+            "ConflictDescription": "",
+            "IsSystemConflict": false,
+            "win": false,
+            "ctrl": false,
+            "alt": false,
+            "shift": false,
+            "code": 0,
+            "key": ""
+          },
+          "isShown": false
+        },
+        "transcode-to-mp4": {
+          "shortcut": {
+            "HasConflict": false,
+            "ConflictDescription": "",
+            "IsSystemConflict": false,
+            "win": false,
+            "ctrl": false,
+            "alt": false,
+            "shift": false,
+            "code": 0,
+            "key": ""
+          },
+          "isShown": false
+        }
+      }
+    }
+  },
+  "name": "AdvancedPaste",
+  "version": "1"
+}
