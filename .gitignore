@@ -15,3 +15,6 @@
 *.jar
 
 *.log
+
+.vscode/
+.idea/
