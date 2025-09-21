@@ -20,3 +20,7 @@ Documents/**
 
 README.md
 .gitignore
+chezmoid.dev.toml
+
+.vscode/**
+.idea/**
