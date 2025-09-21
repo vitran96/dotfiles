@@ -1,0 +1,13 @@
+[credential "https://github.com"]
+    helper = !/usr/bin/gh auth git-credential
+[user]
+    email = {{ .git_email | quote }}
+    name = {{ .git_name | quote }}
+    signingkey = {{ .git_signingkey }}
+[filter "lfs"]
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = {{ .git_lfs_required }}
+[commit]
+    gpgsign = {{ .git_gpgsign }}

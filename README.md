@@ -1,6 +1,19 @@
 # DOT FILES repo
 
-## Chezmoi
+## Presiquite
+
+Setup chezmoi param file at `$HOME/.config/chezmoi/chezmoi.toml`
+
+```toml
+[data]
+    git_email = "<email>"
+    git_name = "<name>"
+    git_signingkey = "<signingkey>"
+    git_lfs_required = "<true|false>"
+    git_gpgsign = "<true|false>"
+```
+
+## Chezmoi command
 
 ```shell
 chezmoi add <file>
@@ -27,6 +40,10 @@ Mix the template feature & ignore to allow reuse config file on different machin
 
 https://www.chezmoi.io/user-guide/manage-machine-to-machine-differences/#ignore-files-or-a-directory-on-different-machines#ignore-files-or-a-directory-on-different-machines
 
-# General doc
+## Templating
+
+https://www.chezmoi.io/user-guide/templating/
+
+## General doc
 
 https://www.chezmoi.io/user-guide/machines/general/?utm_source=chatgpt.com#determine-how-many-cpu-cores-and-threads-the-current-machine-has
