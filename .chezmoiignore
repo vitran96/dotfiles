@@ -16,6 +16,7 @@ Documents/**
 .zsh_aliases
 .zsh_hook
 .zshenv
+.zimrc
 {{ end }}
 
 README.md
