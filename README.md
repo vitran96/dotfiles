@@ -4,14 +4,7 @@
 
 Setup chezmoi param file at `$HOME/.config/chezmoi/chezmoi.toml`
 
-```toml
-[data]
-    git_email = "<email>"
-    git_name = "<name>"
-    git_signingkey = "<signingkey>"
-    git_lfs_required = "<true|false>"
-    git_gpgsign = "<true|false>"
-```
+Please refer [chezmoi.dev.toml](chezmoid.dev.toml) file.
 
 ## Chezmoi command
 
