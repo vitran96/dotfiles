@@ -99,6 +99,7 @@ if (Get-Command mise -ErrorAction SilentlyContinue) {
 # Zoxide
 if (Get-Command zoxide -ErrorAction SilentlyContinue) {
   Invoke-Expression (& { (zoxide init powershell | Out-String) })
+  Set-Alias cdz z
 }
 
 # Direnv
@@ -123,9 +124,3 @@ Set-PsFzfOption -AltCCommand $commandOverride
 
 Set-PSReadLineKeyHandler -Key Tab -ScriptBlock { Invoke-FzfTabCompletion }
 # ------------------------------------------------------------------------------
-
-# Set-PSReadLineKeyHandler -Key UpArrow -Function HistorySearchBackward
-# Set-PSReadLineKeyHandler -Key DownArrow -Function HistorySearchForward
-# Set-PSReadLineOption -PredictionSource History
-# Set-PSReadLineOption -HistoryNoDuplicates
-# Set-PSReadLineKeyHandler -Key Tab -Function Complete
