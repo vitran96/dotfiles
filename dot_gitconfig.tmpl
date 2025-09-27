@@ -14,5 +14,7 @@
 [core]
 	eol = lf
 	autocrlf = false
+{{ if eq .chezmoi.os "windows" }}
 [gpg]
     program = {{ .git_gpgprogram }}
+{{ end }}
