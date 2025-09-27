@@ -98,8 +98,7 @@ if (Get-Command mise -ErrorAction SilentlyContinue) {
 
 # Zoxide
 if (Get-Command zoxide -ErrorAction SilentlyContinue) {
-  Invoke-Expression (& { (zoxide init powershell | Out-String) })
-  Set-Alias cdz z
+  Invoke-Expression (& { (zoxide init powershell --cmd cd | Out-String) })
 }
 
 # Direnv
@@ -111,6 +110,13 @@ if (Get-Command direnv -ErrorAction SilentlyContinue) {
 if (Get-Command bat -ErrorAction SilentlyContinue) {
   Set-Alias cat bat
 }
+
+# neo-vim
+if (Get-Command nvim -ErrorAction SilentlyContinue) {
+  Set-Alias vim nvim
+  Set-Alias vi nvim
+}
+
 
 # Fzf---------------------------------------------------------------------------
 # https://github.com/kelleyma49/PSFzf
