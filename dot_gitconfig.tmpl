@@ -12,8 +12,8 @@
 [commit]
     gpgsign = {{ .git_gpgsign }}
 [core]
-	eol = lf
-	autocrlf = false
+    eol = lf
+    autocrlf = false
 {{ if eq .chezmoi.os "windows" }}
 [gpg]
     program = {{ .git_gpgprogram }}
