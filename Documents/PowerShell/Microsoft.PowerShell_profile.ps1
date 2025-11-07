@@ -115,6 +115,7 @@ if (Get-Command bat -ErrorAction SilentlyContinue) {
 if (Get-Command nvim -ErrorAction SilentlyContinue) {
   Set-Alias vim nvim
   Set-Alias vi nvim
+  Set-Alias v nvim
 }
 
 
