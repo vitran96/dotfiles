@@ -2,3 +2,4 @@
 processors=6
 memory=4294967296
 swap=1073741824
+autoProxy=false
