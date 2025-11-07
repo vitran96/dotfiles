@@ -1,0 +1,28 @@
+#:schema https://jj-vcs.github.io/jj/latest/config-schema.json
+
+[user]
+name = {{ .git_name | quote }}
+email = {{ .git_email | quote }}
+
+[revset-aliases]
+HEAD = "@"
+
+[ui]
+editor = {{ .editor | quote }}
+diff-editor = ":builtin"
+merge-editor = "vscode"
+
+[signing]
+behaviour = "drop"
+backend = "gpg"
+key = {{ .git_signingkey | quote }}
+
+{{ if eq .chezmoi.os "windows" }}
+[signing.backends.gpg]
+program = {{ .git_gpgprogram }}
+{{ end }}
+
+[git]
+sign-on-push = true
+auto-local-bookmark = true
+track-default-bookmark-on-clone = true
