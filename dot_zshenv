@@ -1,5 +1,5 @@
 export ESHELL="zsh"
-export EDITOR="vim"
+export EDITOR="nvim"
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -32,10 +32,12 @@ fpath=( $HOME/.local/lib/python3.10/site-packages/argcomplete/bash_completion.d 
 
 [ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
 
-if [ -e /mnt/bo1/.vagrant.d ]; then
-    export VAGRANT_HOME='/mnt/bo1/.vagrant.d'
-fi
+# if [ -e /mnt/bo1/.vagrant.d ]; then
+#     export VAGRANT_HOME='/mnt/bo1/.vagrant.d'
+# fi
 
 if [ -e "$HOME/.local/share/JetBrains/Toolbox/scripts" ]; then
     export PATH="$PATH:$HOME/.local/share/JetBrains/Toolbox/scripts"
 fi
+
+echo "Loaded .zshenv"

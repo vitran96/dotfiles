@@ -1,0 +1,160 @@
+[audio]
+enable_overdrive = true
+
+[bar.default]
+background_opacity = 0.5
+border = "on_surface_variant"
+border_width = 1.5
+center = [ "launcher", "notifications", "date", "clock", "media" ]
+end = [
+    "tray",
+    "clipboard",
+    "bluetooth",
+    "volume",
+    "spacer_3",
+    "network",
+    "brightness",
+    "battery",
+    "spacer_2",
+    "control-center",
+    "session"
+]
+margin_ends = 100
+margin_opposite_edge = 5
+start = [ "workspaces", "screenshot" ]
+
+[battery]
+warning_threshold = 30
+
+[brightness]
+sync_all_monitors = true
+
+[calendar]
+enabled = true
+
+[desktop_widgets]
+schema_version = 2
+widget_order = []
+
+    [desktop_widgets.grid]
+    cell_size = 16
+    major_interval = 4
+    visible = true
+
+    [desktop_widgets.widget]
+
+[location]
+address = "Ho Chi Minh City"
+sunrise = "6:00"
+sunset = "18:00"
+
+[lockscreen_widgets]
+enabled = true
+schema_version = 2
+widget_order = [ "lockscreen-login-box@HDMI-A-1", "lockscreen-login-box@DP-1", "lockscreen-login-box@eDP-1" ]
+
+    [lockscreen_widgets.grid]
+    cell_size = 16
+    major_interval = 4
+    visible = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@DP-1"]
+    box_height = 70.0
+    box_width = 400.0
+    cx = 512.0
+    cy = 649.0
+    output = "DP-1"
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@DP-1".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
+        input_opacity = 1.0
+        input_radius = 6.0
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_password_hint = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@HDMI-A-1"]
+    box_height = 70.0
+    box_width = 400.0
+    cx = 960.0
+    cy = 961.0
+    output = "HDMI-A-1"
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@HDMI-A-1".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
+        input_opacity = 1.0
+        input_radius = 6.0
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_password_hint = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
+    box_height = 70.0
+    box_width = 400.0
+    cx = 960.0
+    cy = 961.0
+    output = "eDP-1"
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@eDP-1".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
+        input_opacity = 1.0
+        input_radius = 6.0
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_password_hint = true
+
+[plugins]
+enabled = []
+
+[shell]
+clipboard_confirm_clear_history = false
+screen_time_enabled = true
+settings_show_advanced = true
+
+    [shell.panel]
+    transparency_mode = "soft"
+
+    [shell.screen_corners]
+    size = 31
+
+[system.monitor]
+gpu_poll_seconds = 5
+
+[theme]
+builtin = "Dracula"
+community_palette = "Tokyo Night Moon"
+source = "builtin"
+wallpaper_scheme = "m3-content"
+
+[widget.cat]
+type = "noctalia/bongocat:cat"
+
+[widget.media]
+hide_when_no_media = true
+
+[widget.network]
+show_label = false
+
+[widget.spacer_2]
+type = "spacer"
+
+[widget.spacer_3]
+type = "spacer"
+
+[widget.workspaces]
+display = "name"

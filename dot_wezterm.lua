@@ -75,6 +75,19 @@ config.default_cursor_style = 'SteadyBar'
 --   },
 -- }
 
+config.keys = {
+  {
+    key = 'LeftArrow',
+    mods = 'CTRL',
+    action = wezterm.action.SendString '\x1bb'
+  },
+  {
+    key = 'RightArrow',
+    mods = 'CTRL',
+    action = wezterm.action.SendString '\x1bf'
+  }
+}
+
 -- Key binding advance: https://wezterm.org/config/key-tables.html
 
 -- https://wezterm.org/config/lua/config/window_decorations.html

@@ -1,8 +1,8 @@
 [data]
-    git_email = "<email>"
-    git_name = "<name>"
+    git_email = "38664902+vitran96@users.noreply.github.com"
+    git_name = "vitran96"
     git_signingkey = "<signingkey>"
     git_lfs_required = "<true|false>"
     git_gpgsign = "<true|false>"
     git_gpgprogram = ""
-    editor = "vim"
+    editor = "nvim"

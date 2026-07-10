@@ -1,6 +1,7 @@
 # Zoxide
 if command -v zoxide &>/dev/null; then
   eval "$(zoxide init --cmd cd zsh)"
+  echo "Hook zoxide"
 fi
 
 # Nix
@@ -11,9 +12,13 @@ if command -v jj &>/dev/null; then
   # autoload -U compinit
   # compinit
   source <(jj util completion zsh)
+  echo "Loaded JJ completion"
 fi
 
 if [ -e $HOME/.local/bin/mise ]; then
   # shims can add performance overhead. good use case might be in CICD pipeline
   eval "$($HOME/.local/bin/mise activate zsh)"
+  echo "Hook mise"
 fi
+
+echo "Loaded .zsh_hook"

@@ -7,6 +7,7 @@ if [ -x /usr/bin/dircolors ]; then
   # alias grep='grep --color=auto'
   # alias fgrep='fgrep --color=auto'
   # alias egrep='egrep --color=auto'
+  echo "Setup dircolor"
 fi
 
 # colored GCC warnings and errors
@@ -18,6 +19,7 @@ if command -v lsd --version >/dev/null 2>&1; then
   alias l='lsd'
   alias ll='lsd -alF'
   alias la='lsd -A'
+  echo "Created alias for lsd"
 else
   alias ll='ls -alF'
   alias la='ls -A'
@@ -26,23 +28,32 @@ fi
 
 if command -v dust --version >/dev/null 2>&1; then
   alias du='dust'
+  echo "Created alias for dust"
 fi
 
 if [ -e /usr/bin/fdfind ]; then
   alias find='fd'
+  echo "Created alias for fdfind"
 fi
 
 if [ -e /usr/bin/rg ]; then
   alias grep='rg'
+  echo "Created alias for ripgrep"
 fi
 
 if [ -e /usr/bin/batcat ]; then
   alias cat='batcat'
   alias bat='batcat'
+  echo "Created alias for batcat"
+elif [ -e /usr/bin/bat ]; then
+  alias cat='bat'
+  alias bat='bat'
+  echo "Created alias for bat"
 fi
 
 if [ -e $HOME/.cargo/bin/dua ]; then
   alias dua=$HOME/.cargo/bin/dua
+  echo "Created alias for dua"
 fi
 
 # Add an 'alert' alias for long running commands.  Use like so:
@@ -51,8 +62,9 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 
 alias explorer='nautilus'
 
-alias vi='vim'
-alias v='vim'
+alias vim='nvim'
+alias vi='nvim'
+alias v='nvim'
 
 #alias emacs-standalone='/usr/bin/emacs -nw'
 #alias emacs='emacsclient -nw -a emacs-standalone'
@@ -64,3 +76,5 @@ if command -v podman --version >/dev/null 2>&1; then
   alias docker='podman'
   alias docker-compose='podman-compose'
 fi
+
+echo "Loaded .zsh_aliases"

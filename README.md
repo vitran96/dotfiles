@@ -4,6 +4,11 @@
 
 Setup chezmoi param file at `$HOME/.config/chezmoi/chezmoi.toml`
 
+```shell
+mkdir -p $HOME/.config/chezmoi
+cp chezmoid.dev.toml $HOME/.config/chezmoi/chezmoi.toml
+```
+
 Please refer [chezmoi.dev.toml](chezmoid.dev.toml) file.
 
 ## Chezmoi command
@@ -29,6 +34,7 @@ chezmoi apply --dry-run --verbose
 ```
 
 ## Ignore file on different directory
+
 Mix the template feature & ignore to allow reuse config file on different machine
 
 https://www.chezmoi.io/user-guide/manage-machine-to-machine-differences/#ignore-files-or-a-directory-on-different-machines#ignore-files-or-a-directory-on-different-machines
