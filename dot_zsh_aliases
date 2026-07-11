@@ -47,13 +47,18 @@ if [ -e /usr/bin/batcat ]; then
   echo "Created alias for batcat"
 elif [ -e /usr/bin/bat ]; then
   alias cat='bat'
-  alias bat='bat'
   echo "Created alias for bat"
 fi
 
+# dua might be in /usr/bin/dua -> no need for alias
 if [ -e $HOME/.cargo/bin/dua ]; then
   alias dua=$HOME/.cargo/bin/dua
   echo "Created alias for dua"
+fi
+
+if [ -e $HOME/.local/share/mise/installs/node/26.5.0/bin/safe-rm ]; then
+  alias rm='safe-rm'
+  echo "Created alias for safe-rm"
 fi
 
 # Add an 'alert' alias for long running commands.  Use like so:
