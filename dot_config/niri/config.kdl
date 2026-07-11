@@ -12,8 +12,6 @@ environment {
     XDG_SESSION_TYPE "wayland"
 }
 
-prefer-no-csd
-
 input {
     keyboard {
         xkb {
@@ -302,6 +300,8 @@ spawn-at-startup "swayidle" "-w" \
     "timeout" "900" "noctalia msg session lock-and-suspend" \
     "before-sleep" "noctalia msg session lock"
 
+spawn-at-startup "fcitx5" "-d"
+
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
 
@@ -321,7 +321,7 @@ hotkey-overlay {
 // Additionally, clients will be informed that they are tiled, removing some client-side rounded corners.
 // This option will also fix border/focus ring drawing behind some semitransparent windows.
 // After enabling or disabling this, you need to restart the apps for this to take effect.
-// prefer-no-csd
+prefer-no-csd
 
 // You can change the path where screenshots are saved.
 // A ~ at the front will be expanded to the home directory.
@@ -362,6 +362,11 @@ window-rule {
     // - host Firefox (app-id is "firefox")
     // - Flatpak Firefox (app-id is "org.mozilla.firefox")
     match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+    open-floating true
+}
+
+window-rule {
+    match app-id="^fcitx$" title="^Fcitx5 Input Window$"
     open-floating true
 }
 
