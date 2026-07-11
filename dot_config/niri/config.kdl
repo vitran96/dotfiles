@@ -302,6 +302,8 @@ spawn-at-startup "swayidle" "-w" \
 
 spawn-at-startup "fcitx5" "-d"
 
+spawn-at-startup "/usr/libexec/polkit-mate-authentication-agent-1"
+
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
 
