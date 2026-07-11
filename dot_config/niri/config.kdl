@@ -293,9 +293,13 @@ layout {
 // This line starts waybar, a commonly used bar for Wayland compositors.
 /-spawn-at-startup "waybar"
 spawn-at-startup "noctalia"
+//spawn-at-startup "swayidle" "-w" \
+//    "timeout" "300" "noctalia msg session lock" \
+//    "timeout" "600" "noctalia msg session suspend" \
+//    "before-sleep" "noctalia msg session lock"
+
 spawn-at-startup "swayidle" "-w" \
-    "timeout" "300" "noctalia msg session lock" \
-    "timeout" "600" "noctalia msg session suspend" \
+    "timeout" "900" "noctalia msg session lock-and-suspend" \
     "before-sleep" "noctalia msg session lock"
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
