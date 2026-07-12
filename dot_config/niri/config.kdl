@@ -76,7 +76,7 @@ input {
     focus-follows-mouse max-scroll-amount="0%"
 
     // Let logind handle this
-    disable-lid-switch-handling
+    //disable-lid-switch-handling
     disable-power-key-handling
 }
 
@@ -302,7 +302,7 @@ spawn-at-startup "swayidle" "-w" \
 
 spawn-at-startup "fcitx5" "-d"
 
-# polkit agent required for password prompting
+// polkit agent required for password prompting
 spawn-at-startup "/usr/libexec/polkit-mate-authentication-agent-1"
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
