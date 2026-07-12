@@ -74,6 +74,10 @@ input {
     // Focus windows and outputs automatically when moving the mouse into them.
     // Setting max-scroll-amount="0%" makes it work only on windows already fully on screen.
     focus-follows-mouse max-scroll-amount="0%"
+
+    // Let logind handle this
+    disable-lid-switch-handling
+    disable-power-key-handling
 }
 
 // You can configure outputs by their name, which you can find
@@ -291,23 +295,20 @@ layout {
 // This line starts waybar, a commonly used bar for Wayland compositors.
 /-spawn-at-startup "waybar"
 spawn-at-startup "noctalia"
-//spawn-at-startup "swayidle" "-w" \
-//    "timeout" "300" "noctalia msg session lock" \
-//    "timeout" "600" "noctalia msg session suspend" \
-//    "before-sleep" "noctalia msg session lock"
 
 spawn-at-startup "swayidle" "-w" \
-    "timeout" "900" "noctalia msg session lock-and-suspend" \
+    "timeout" "300" "noctalia msg session lock" \
     "before-sleep" "noctalia msg session lock"
 
 spawn-at-startup "fcitx5" "-d"
 
+# polkit agent required for password prompting
 spawn-at-startup "/usr/libexec/polkit-mate-authentication-agent-1"
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
 
-switch-events {
+/-switch-events {
     lid-close {
         spawn "noctalia msg session lock"
     }
@@ -315,7 +316,7 @@ switch-events {
 
 hotkey-overlay {
     // Uncomment this line to disable the "Important Hotkeys" pop-up at startup.
-    // skip-at-startup
+    skip-at-startup
 }
 
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.
@@ -413,6 +414,8 @@ binds {
     Mod+E hotkey-overlay-title="Open a Explorer" { spawn "nautilus"; }
     Mod+backslash { spawn "1password"; }
     Super+Escape hotkey-overlay-title="Lock the Screen" allow-when-locked=true { spawn-sh "noctalia msg session lock-and-suspend"; }
+
+    Mod+X { spawn-sh "noctalia msg panel-open session"; }
 
     // Core Noctalia binds
     //Mod+Space { spawn-sh "noctalia msg panel-toggle launcher"; }
