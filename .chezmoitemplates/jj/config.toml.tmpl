@@ -12,20 +12,21 @@ editor = {{ .editor | quote }}
 diff-editor = ":builtin"
 merge-editor = "vscode"
 
-{{ if .git_gpgsign }}
+{{ if eq .git_gpgsign "true" }}
 [signing]
 behaviour = "drop"
 backend = "gpg"
 key = {{ .git_signingkey | quote }}
+{{ end }}
 
-{{ if eq .chezmoi.os "windows" }}
+{{ if and (eq .chezmoi.os "windows") (eq .git_gpgsign "true") }}
 [signing.backends.gpg]
 program = {{ .git_gpgprogram }}
 {{ end }}
-{{ end }}
+
 
 [git]
-{{ if .git_gpgsign }}
+{{ if eq .git_gpgsign "true" }}
 sign-on-push = true
 {{ end }}
 auto-local-bookmark = true
