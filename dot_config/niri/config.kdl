@@ -297,7 +297,7 @@ layout {
 spawn-at-startup "noctalia"
 
 spawn-at-startup "swayidle" "-w" \
-    "timeout" "300" "noctalia msg session lock" \
+    "timeout" "300" "noctalia msg session lock-and-suspend" \
     "before-sleep" "noctalia msg session lock"
 
 spawn-at-startup "fcitx5" "-d"
