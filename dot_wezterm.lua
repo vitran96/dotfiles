@@ -79,12 +79,17 @@ config.keys = {
   {
     key = 'LeftArrow',
     mods = 'CTRL',
-    action = wezterm.action.SendString '\x1bb'
+    action = wezterm.action.SendString '\x1bb',
   },
   {
     key = 'RightArrow',
     mods = 'CTRL',
-    action = wezterm.action.SendString '\x1bf'
+    action = wezterm.action.SendString '\x1bf',
+  },
+  {
+    key = 'Backspace',
+    mods = 'CTRL',
+    action = wezterm.action.SendString '\x17',
   }
 }
 
