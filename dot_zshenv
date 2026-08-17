@@ -40,4 +40,8 @@ if [ -e "$HOME/.local/share/JetBrains/Toolbox/scripts" ]; then
     export PATH="$PATH:$HOME/.local/share/JetBrains/Toolbox/scripts"
 fi
 
+if [ -d "$HOME/.local/bin" ] ; then
+    export PATH="$HOME/.local/bin:$PATH"
+fi
+
 echo "Loaded .zshenv"
